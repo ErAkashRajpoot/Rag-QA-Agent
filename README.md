@@ -21,5 +21,11 @@ It retrieves relevant documents, summarizes them, and generates **step-by-step r
 ```bash
 git clone https://github.com/ErAkashRajpoot/rag-qa-agent.git
 cd rag-qa-agent
-pip install -r requirements.txt
+pip install
+langchain
+langchain-community
+langchain-huggingface
+transformers
+faiss-cpu
+sentence-transformers
 python test_agentic.py
