@@ -1,0 +1,3 @@
+NVIDIA designs GPUs for gaming, AI, and high-performance computing.
+LangChain is a framework for building LLM-powered applications.
+FAISS is a library for efficient similarity search and clustering of dense vectors.
