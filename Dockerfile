@@ -1,0 +1,21 @@
+# Use lightweight Python image
+FROM python:3.10-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy files into container
+COPY . .
+
+# Install dependencies
+RUN pip install --default-timeout=100 -i https://pypi.org/simple --no-cache-dir -r requirements.txt
+
+# Streamlit specific settings
+ENV STREAMLIT_SERVER_PORT=7860
+ENV STREAMLIT_SERVER_ADDRESS=0.0.0.0
+
+# Expose Streamlit default port
+EXPOSE 7860
+
+# Run Streamlit when container starts
+CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
