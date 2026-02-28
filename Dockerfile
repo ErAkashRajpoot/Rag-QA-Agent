@@ -8,14 +8,14 @@ WORKDIR /app
 COPY . .
 
 # Install dependencies
-RUN pip install --default-timeout=100 -i https://pypi.org/simple --no-cache-dir -r requirements.txt
+RUN pip install --default-timeout=100 --no-cache-dir -r requirements.txt
 
-# Streamlit specific settings
+# Streamlit settings
 ENV STREAMLIT_SERVER_PORT=7860
 ENV STREAMLIT_SERVER_ADDRESS=0.0.0.0
 
-# Expose Streamlit default port
+# Expose HF Spaces port
 EXPOSE 7860
 
-# Run Streamlit when container starts
-CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+# Run Streamlit
+CMD ["streamlit", "run", "app.py", "--server.port=7860", "--server.address=0.0.0.0"]

@@ -1,8 +1,10 @@
 streamlit
 langchain
-faiss-cpu
-huggingface_hub
-sentence-transformers
 langchain-community
-python-dotenv
 langchain-huggingface
+langchain-text-splitters
+transformers
+torch
+faiss-cpu
+sentence-transformers
+pypdf
