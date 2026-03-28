@@ -1,3 +1,13 @@
+---
+title: Agentic RAG QA Assistant
+emoji: 🤖
+colorFrom: indigo
+colorTo: purple
+sdk: docker
+pinned: false
+---
+
+
 # Retrieval-Augmented QA Agent (Agentic RAG)
 
 ## 📌 Overview
@@ -10,6 +20,7 @@ It retrieves relevant documents from NLP knowledge base, and generates **factual
 - Hugging Face FLAN-T5 for generation
 - Few-shot extractive QA prompt
 - 100 curated NLP topic documents covering foundations to advanced topics
+- FAISS index caching for fast restarts
 - Fully local (no API keys required)
 
 ## 🛠️ Tech Stack
@@ -17,6 +28,7 @@ It retrieves relevant documents from NLP knowledge base, and generates **factual
 - **FAISS** (vector store)
 - **Sentence-Transformers**
 - **Hugging Face Models (FLAN-T5-large)**
+
 
 ## 📂 Data
 The `data/` folder contains `NLP DOC.txt` — 100 structured documents covering:
@@ -33,6 +45,7 @@ cd rag-qa-agent
 pip install langchain langchain-community langchain-huggingface transformers faiss-cpu sentence-transformers
 python test_agentic.py
 ```
+
 
 ## 🧪 Example Questions
 ```
