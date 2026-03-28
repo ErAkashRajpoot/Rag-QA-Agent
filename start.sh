@@ -1,4 +1,7 @@
 #!/bin/bash
+# Export the root application directory to PYTHONPATH so Streamlit can find 'app'
+export PYTHONPATH=/app:$PYTHONPATH
+
 # Start FastAPI backend in the background
 echo "Starting FastAPI Backend..."
 uvicorn app.main:api_handler --host 0.0.0.0 --port 8000 &
