@@ -8,3 +8,7 @@ torch
 faiss-cpu
 sentence-transformers
 pypdf
+fastapi
+uvicorn
+pydantic-settings
+requests

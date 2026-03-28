@@ -1,0 +1,21 @@
+# === Backend Minimal Python Dockerfile ===
+# Stage 1: Builder footprint
+FROM python:3.10-slim as builder
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --user --no-cache-dir -r requirements.txt
+
+# Stage 2: Clean Image Deployment
+FROM python:3.10-slim
+WORKDIR /app
+
+# Ensure curl for internal compose healthchecks and drop OS heavy cache
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+COPY --from=builder /root/.local /root/.local
+ENV PATH=/root/.local/bin:$PATH
+
+COPY ./app ./app
+
+# Mount ports via env
+EXPOSE 8000
+CMD ["uvicorn", "app.main:api_handler", "--host", "0.0.0.0", "--port", "8000"]
