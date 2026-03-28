@@ -35,7 +35,7 @@ class AgenticRAG:
             print("Model loaded on CPU in FP32")
 
         generator = pipeline(
-            "text-generation",
+            "text2text-generation",
             model=model,
             tokenizer=self.tokenizer,
             max_new_tokens=256,
