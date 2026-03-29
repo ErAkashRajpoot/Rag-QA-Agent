@@ -16,7 +16,7 @@ query = st.text_input("Enter your question here:")
 if query:
     with st.spinner("Retrieving context and compiling answer from Backend API..."):
         try:
-            api_url = f"http://{settings.API_ADDRESS}:{settings.API_PORT}/api/v1/query"
+            api_url = f"http://127.0.0.1:{settings.API_PORT}/api/v1/query"
             
             # Submitting the request to our newly decoupled FastAPI backend
             response = requests.post(
