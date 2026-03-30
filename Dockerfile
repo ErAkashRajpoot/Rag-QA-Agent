@@ -10,19 +10,18 @@ COPY . .
 # Install dependencies
 RUN pip install --default-timeout=100 --no-cache-dir -r requirements.txt
 
-# Streamlit config (HF mapped internal port)
+# Set PYTHONPATH so 'app' package is resolvable
+ENV PYTHONPATH=/app:$PYTHONPATH
+
+# Direct mode: Streamlit imports the RAG engine directly (no separate FastAPI process)
+ENV DEPLOYMENT_MODE=direct
+
+# Streamlit settings
 ENV STREAMLIT_SERVER_PORT=7860
 ENV STREAMLIT_SERVER_ADDRESS=0.0.0.0
 
-# API Configuration
-ENV API_PORT=8000
-ENV API_ADDRESS=127.0.0.1
-
-# Ensure execution capability on the launcher
-RUN chmod +x start.sh
-
-# Expose Space port (FastAPI internal bind doesn't need expose out of host)
+# Expose HF Spaces port
 EXPOSE 7860
 
-# Run Orchestrator
-CMD ["./start.sh"]
+# Run Streamlit directly
+CMD ["streamlit", "run", "app/frontend/streamlit_app.py", "--server.port=7860", "--server.address=0.0.0.0"]
