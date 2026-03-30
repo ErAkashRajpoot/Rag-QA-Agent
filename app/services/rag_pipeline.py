@@ -43,7 +43,7 @@ class AgenticRAG:
                 logger.warning(f"No GPU Detected. Model `{self.model_name}` mapped to CPU FP32. Expect sub-optimal inference times.")
 
             generator = pipeline(
-                "text2text-generation",  # Crucial fix from prototype: ensuring Seq2Seq alignment
+                "text-generation",  # Modern transformers auto-detects seq2seq vs causal
                 model=model,
                 tokenizer=self.tokenizer,
                 max_new_tokens=256,
