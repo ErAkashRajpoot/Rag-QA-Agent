@@ -1,13 +1,3 @@
----
-title: Agentic RAG QA Assistant
-emoji: 🤖
-colorFrom: indigo
-colorTo: purple
-sdk: docker
-pinned: false
----
-
-
 # Retrieval-Augmented QA Agent (Agentic RAG)
 
 ## 📌 Overview
